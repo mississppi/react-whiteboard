@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Button from './Button';
 import List from './List';
+// import "./App.css";
 
 export type Card = {
     id: number;

@@ -22,13 +22,16 @@ const List: React.FC<ListProps> = ({cards, updateCard}) => {
     }
     return (
         <div
-            style={{ width: "1000px", height: "1000px", position: "relative"}}
+            className="Board"
+            style={{width: "1000px", height: "1000px", position: "relative"}}
             onDrop={(e) => changePos(e)}
             onDragOver={(e) => e.preventDefault()}
+            onDoubleClick={(e) => console.log("ji")}
         >
             {cards.map((card) => {
                 return (
                     <div
+                        className="card"
                         key={card.id}
                         style={{position: "absolute", top: card.y + "px", left: card.x + "px"}}
                         onDragStart={(e) => setDragging(card)}
