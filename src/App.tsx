@@ -6,9 +6,9 @@ import './App.css';
 function App() {
   return (
     <ChakraProvider>
-    <div className="App">
-      <Card />
-    </div>
+      <div className="App">
+        <Card />
+      </div>
     </ChakraProvider>
   );
 }
