@@ -1,7 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from './Button';
 import List from './List';
-// import "./App.css";
+import "@aws-amplify/ui-react/styles.css";
+import { API } from "aws-amplify";
+import {
+    // Button,
+    Flex,
+    Heading,
+    Text,
+    TextField,
+    View,
+    withAuthenticator,
+} from "@aws-amplify/ui-react";
+import { listCards } from "./graphql/queries";
+
 
 export type Card = {
     id: number;
@@ -14,12 +26,22 @@ export type Card = {
 const Card = () => {
     const cardsList = [
         {id:1, content: 'sample1', x: 100, y: 100, editing: false},
-        {id:2, content: 'sample2', x: 150, y: 150, editing: false},
     ]
+
     const [cards, setCards] = useState(cardsList);
+    // const [cards, setCards] = useState([{}]);
+
+    useEffect(() => {
+        fetchCards();
+    }, []);
+
+    async function fetchCards() {
+        const apiData = await API.graphql({ query: listCards });
+        console.log(apiData);
+        // const cardsFromAPI = apiData.data.listCards.items;
+    }
 
     const createCard = (card: Card) => {
-
         //state
         setCards([...cards, card]);
     }
