@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({createCard}) => {
     const addCard = () => {
         const newCard = {
             id: Math.floor(Math.random() * 1e5),
-            content: '新規カード',
+            content: '新規カード' + Math.floor(Math.random() * 1e5),
             x: 50,
             y: 50,
             editing: false,

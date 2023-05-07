@@ -26,7 +26,6 @@ const List: React.FC<ListProps> = ({cards, updateCard}) => {
             style={{width: "1000px", height: "1000px", position: "relative"}}
             onDrop={(e) => changePos(e)}
             onDragOver={(e) => e.preventDefault()}
-            onDoubleClick={(e) => console.log("ji")}
         >
             {cards.map((card) => {
                 return (
